@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingreso de un nuevo estudiante</title>
+</head>
+<body>
+	
+	<form method="post" th:action="@{/formEstudiante}" th:object="${estudiante}">
+		<label>Nombre del estudiante: </label>
+		<input type="text" th:field="*{nombre}"> <br>
+		<span th:errors="*{nombre}" style="color: #E81505"></span>
+		<br>
+		
+		<label>Apellido del estudiante: </label>
+		<input type="text" th:field="*{apellido}"> <br>
+		<span th:errors="*{apellido}" style="color: #E81505"></span>
+		<br>
+		
+		<label>Carne del estudiante: </label>
+		<input type="text" th:field="*{carne}"> <br>
+		<span th:errors="*{carne}" style="color: #E81505"></span>
+		<br>
+		
+		<label>Carrera del estudiante: </label>
+		<input type="text" th:field="*{carrera}"> <br>
+		<span th:errors="*{carrera}" style="color: #E81505"></span>
+		<br>
+		
+		<input type="submit" value="Ingresar estudiante">
+	</form>
+	
+	<br>
+	
+	<form th:action="@{/borrarEstudiante}" method="post">
+		<label>Borrar estudiante por codigo: </label> <input type="number" name="codigo"> <br>
+		<input type="submit" value="Borrar">
+	</form>
+	
+	<br>
+	
+	<form th:action="@{/listado}" method = "post">
+		<input type ="submit" value = "Mostrar Estudiantes">
+	</form>
+	
+</body>
+</html>
